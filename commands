@@ -23,10 +23,20 @@ case "$1" in
     ;;
 
   help)
-    cat && cat<<EOF
+    HELP=$(cat<<EOF
     forego:update, Update the forego binary. Changes take effect in containers on the next release.
     forego:version, Show the forego binary version
 EOF
-  ;;
+)
+    if [[ -n $DOKKU_API_VERSION ]]; then
+      echo "$HELP"
+    else
+      cat && echo "$HELP"
+    fi
+    ;;
+
+  *)
+    exit "$DOKKU_NOT_IMPLEMENTED_EXIT"
+    ;;
 
 esac
