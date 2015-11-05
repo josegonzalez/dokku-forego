@@ -10,6 +10,9 @@ Only works with dokku 0.3.19+.
 ```
 # Install the plugin:
 git clone https://github.com/iskandar/dokku-forego.git /var/lib/dokku/plugins/forego
+
+# on 0.4.x
+dokku plugin:install https://github.com/iskandar/dokku-forego.git forego
 ```
 
 ## What it does
